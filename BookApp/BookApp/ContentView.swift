@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     @State private var isPresented: Bool = false
     @EnvironmentObject private var viewModel: BookViewModel
-    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationView{
@@ -44,10 +42,6 @@ struct ContentView: View {
             }.sheet(isPresented: $isPresented) {
                 AddBookView(isPresented: $isPresented)
             }
-        }
-        .task {
-            viewModel.setContext(modelContext)
-            viewModel.loadBooks()
         }
     }
 }
