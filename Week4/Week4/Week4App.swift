@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Week4App: App {
+    @StateObject private var viewModel = TodoViewModel()
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            AppStorageExample()
+            //AppStorageExample()
+            JSONUserDefaultExample().environmentObject(viewModel)
         }
     }
 }
